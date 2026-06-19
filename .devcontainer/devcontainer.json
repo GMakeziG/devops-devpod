@@ -1,0 +1,35 @@
+{
+  "name": "Ninjatronics DevOps IDE",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/powershell:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+  "postCreateCommand": "bash scripts/post-create.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.vscode-yaml",
+        "redhat.ansible",
+        "hashicorp.terraform",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-python.python",
+        "ms-vscode.powershell",
+        "github.vscode-github-actions"
+      ]
+    }
+  }
+}

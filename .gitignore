@@ -1,0 +1,35 @@
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Neovim
+.lazy/
+.mason/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Python
+__pycache__/
+*.pyc
+
+# DevPod
+.devpod/
+
+# Secrets
+*.pem
+*.key
+*.pfx
+*.p12

@@ -1,0 +1,24 @@
+# Ninjatronics DevOps IDE
+
+export EDITOR=nvim
+export VISUAL=nvim
+export PATH="$HOME/.local/bin:$PATH"
+
+alias vim='nvim'
+alias vi='nvim'
+
+alias ll='eza -la --icons'
+alias ls='eza --icons'
+alias cat='batcat'
+
+alias k='kubectl'
+alias kgp='kubectl get pods'
+alias kgn='kubectl get nodes'
+alias kga='kubectl get all'
+alias kctx='kubectl config current-context'
+
+alias tf='terraform'
+alias lg='lazygit'
+alias grep='rg'
+
+eval "$(zoxide init bash)"
