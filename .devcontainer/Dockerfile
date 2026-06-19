@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     net-tools dnsutils iputils-ping traceroute nmap tcpdump \
     openssh-client rsync \
     bat eza zoxide \
+    xclip xsel wl-clipboard \
     && ln -sf /usr/bin/fdfind /usr/local/bin/fd \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
