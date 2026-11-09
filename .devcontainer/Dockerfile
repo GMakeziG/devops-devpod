@@ -20,16 +20,23 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN if [ "$(uname -m)" = "aarch64" ]; then \
-      curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.tar.gz && \
+      curl -fL --retry 5 --retry-all-errors --retry-delay 3 \
+        --connect-timeout 15 --max-time 180 \
+        -o nvim-linux-arm64.tar.gz \
+        https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.tar.gz && \
       tar xzf nvim-linux-arm64.tar.gz && \
       mv nvim-linux-arm64 /opt/nvim && \
       ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim && \
       rm nvim-linux-arm64.tar.gz; \
     else \
-      curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage && \
+      curl -fL --retry 5 --retry-all-errors --retry-delay 3 \
+        --connect-timeout 15 --max-time 180 \
+        -o nvim-linux-x86_64.appimage \
+        https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage && \
       chmod +x nvim-linux-x86_64.appimage && \
       ./nvim-linux-x86_64.appimage --appimage-extract && \
       mv squashfs-root /opt/nvim && \
+      chmod -R a+rX /opt/nvim && \
       ln -s /opt/nvim/AppRun /usr/local/bin/nvim && \
       rm nvim-linux-x86_64.appimage; \
     fi
